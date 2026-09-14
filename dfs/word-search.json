@@ -1,0 +1,60 @@
+{
+  "title":"word-search",
+  "code":"
+#include<iostream>
+#include<vector>
+#include<string>
+using namespace std;
+
+bool dfs(vector<vector<char>>& board,string& word,int i,int j,int k){
+    int n=board.size();
+    int m=board[0].size();
+
+    if(k==word.size())
+        return true;
+
+    if(i<0||i>=n||j<0||j>=m||board[i][j]!=word[k])
+        return false;
+
+    char temp=board[i][j];
+    board[i][j]='#';
+
+    bool found=dfs(board,word,i+1,j,k+1)||
+               dfs(board,word,i-1,j,k+1)||
+               dfs(board,word,i,j+1,k+1)||
+               dfs(board,word,i,j-1,k+1);
+
+    board[i][j]=temp;
+
+    return found;
+}
+
+int main(){
+    int n,m;
+    cin>>n>>m;
+
+    vector<vector<char>> board(n,vector<char>(m));
+
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            cin>>board[i][j];
+        }
+    }
+
+    string word;
+    cin>>word;
+
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            if(dfs(board,word,i,j,0)){
+                cout<<"true";
+                return 0;
+            }
+        }
+    }
+
+    cout<<"false";
+    return 0;
+}
+  "
+}
