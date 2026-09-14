@@ -1,0 +1,40 @@
+{
+"title":"contugous-array",
+"code":"
+#include<iostream>
+#include<vector>
+#include<unordered_map>
+using namespace std;
+
+int main(){
+    int n;
+    cin>>n;
+
+    vector<int> nums(n);
+    for(int i=0;i<n;i++){
+        cin>>nums[i];
+    }
+
+    unordered_map<int,int> mp;
+    mp[0]=-1;
+
+    int sum=0,ans=0;
+
+    for(int i=0;i<n;i++){
+        if(nums[i]==0) sum--;
+        else sum++;
+
+        if(mp.find(sum)!=mp.end()){
+            ans=max(ans,i-mp[sum]);
+        }
+        else{
+            mp[sum]=i;
+        }
+    }
+
+    cout<<ans;
+    return 0;
+}
+
+"
+}
