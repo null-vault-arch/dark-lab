@@ -1,0 +1,52 @@
+{
+  "title":"
+  #include<iostream>
+#include<vector>
+using namespace std;
+
+void dfs(vector<vector<int>>& image,int i,int j,int oldColor,int newColor){
+    int n=image.size();
+    int m=image[0].size();
+
+    if(i<0||i>=n||j<0||j>=m||image[i][j]!=oldColor)
+        return;
+
+    image[i][j]=newColor;
+
+    dfs(image,i+1,j,oldColor,newColor);
+    dfs(image,i-1,j,oldColor,newColor);
+    dfs(image,i,j+1,oldColor,newColor);
+    dfs(image,i,j-1,oldColor,newColor);
+}
+
+int main(){
+    int n,m;
+    cin>>n>>m;
+
+    vector<vector<int>> image(n,vector<int>(m));
+
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            cin>>image[i][j];
+        }
+    }
+
+    int sr,sc,color;
+    cin>>sr>>sc>>color;
+
+    int oldColor=image[sr][sc];
+
+    if(oldColor!=color)
+        dfs(image,sr,sc,oldColor,color);
+
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            cout<<image[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+
+    return 0;
+}
+  "
+}
