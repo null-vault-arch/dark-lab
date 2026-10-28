@@ -1,0 +1,30 @@
+{
+  "title":"Count Subarrays with Even Sum",
+  "code":"#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    long long even = 1, odd = 0, sum = 0, count = 0;
+
+    for (int i = 0; i < n; i++) {
+        int x;
+        cin >> x;
+        sum += x;
+
+        if (sum % 2 == 0) {
+            count += even;
+            even++;
+        } else {
+            count += odd;
+            odd++;
+        }
+    }
+
+    cout << count;
+
+    return 0;
+}"
+}
