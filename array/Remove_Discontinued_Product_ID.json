@@ -1,0 +1,27 @@
+{
+  "title":"Remove Discontinued Product ID",
+  "code":"#include <iostream>
+using namespace std;
+
+int main() {
+    int n, a[2200], x;
+    cin >> n;
+
+    for (int i = 0; i < n; i++)
+        cin >> a[i];
+
+    cin >> x;
+
+    bool first = true;
+
+    for (int i = 0; i < n; i++) {
+        if (a[i] != x) {
+            if (!first) cout << " ";
+            cout << a[i];
+            first = false;
+        }
+    }
+
+    return 0;
+}"
+}
