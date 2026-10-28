@@ -1,4 +1,23 @@
 {
-  "title": "Single Element Appearing Once",
-  "code": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int N;\n    cin >> N;\n\n    int ones = 0, twos = 0;\n\n    for (int i = 0; i < N; i++) {\n        int num;\n        cin >> num;\n\n        ones = (ones ^ num) & ~twos;\n        twos = (twos ^ num) & ~ones;\n    }\n\n    cout << ones << '\\n';\n    return 0;\n}"
+  "title":"Single Element Appearing Once",
+  "code":"#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int N;
+    cin >> N;
+
+    int ones = 0, twos = 0;
+
+    for (int i = 0; i < N; i++) {
+        int num;
+        cin >> num;
+
+        ones = (ones ^ num) & ~twos;
+        twos = (twos ^ num) & ~ones;
+    }
+
+    cout << ones << '\\n';
+    return 0;
+}"
 }
