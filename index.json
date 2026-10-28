@@ -1,6 +1,7 @@
 {
-  "1":"bfs",
-  "2":"dfs",
-  "3":"prefix-sum"
-  "4":"array"
+  "1": "bfs",
+  "2": "dfs",
+  "3": "prefix-sum",
+  "4": "array",
+  "5": "bit-manipulation"
 }
