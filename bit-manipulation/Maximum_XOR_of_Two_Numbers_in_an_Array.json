@@ -1,4 +1,26 @@
 {
-  "title": "Maximum XOR of Two Numbers in an Array",
-  "code": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int N;\n    cin >> N;\n\n    vector<int> nums(N);\n    for (int i = 0; i < N; i++) {\n        cin >> nums[i];\n    }\n\n    int maxXor = 0;\n\n    for (int i = 0; i < N; i++) {\n        for (int j = i + 1; j < N; j++) {\n            maxXor = max(maxXor, nums[i] ^ nums[j]);\n        }\n    }\n\n    cout << maxXor << '\\n';\n    return 0;\n}"
+  "title":"Maximum XOR of Two Numbers in an Array",
+  "code":"#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int N;
+    cin >> N;
+
+    vector<int> nums(N);
+    for (int i = 0; i < N; i++) {
+        cin >> nums[i];
+    }
+
+    int maxXor = 0;
+
+    for (int i = 0; i < N; i++) {
+        for (int j = i + 1; j < N; j++) {
+            maxXor = max(maxXor, nums[i] ^ nums[j]);
+        }
+    }
+
+    cout << maxXor << '\\n';
+    return 0;
+}"
 }
