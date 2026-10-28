@@ -1,4 +1,22 @@
 {
-  "title": "Missing Number using Bit Manipulation (XOR)",
-  "code": "#include <bits/stdc++.h>\nusing namespace std;\n\nint main() {\n    int N;\n    cin >> N;\n\n    int missing = N;\n\n    for (int i = 0; i < N; i++) {\n        int num;\n        cin >> num;\n\n        missing ^= i ^ num;\n    }\n\n    cout << missing << '\\n';\n    return 0;\n}"
+  "title":"Missing Number using Bit Manipulation (XOR)",
+  "code":"#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int N;
+    cin >> N;
+
+    int missing = N;
+
+    for (int i = 0; i < N; i++) {
+        int num;
+        cin >> num;
+
+        missing ^= i ^ num;
+    }
+
+    cout << missing << '\\n';
+    return 0;
+}"
 }
