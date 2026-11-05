@@ -1,0 +1,33 @@
+{
+  "title":"Prefix Sum with HashMap (Subarray Sum Equals K)",
+  "code":"#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n;
+    long long k;
+    cin >> n >> k;
+
+    vector<int> arr(n);
+    for (int i = 0; i < n; i++)
+        cin >> arr[i];
+
+    unordered_map<long long, long long> freq;
+    freq[0] = 1;
+
+    long long prefix = 0;
+    long long count = 0;
+
+    for (int x : arr) {
+        prefix += x;
+
+        if (freq.count(prefix - k))
+            count += freq[prefix - k];
+
+        freq[prefix]++;
+    }
+
+    cout << count << '\n';
+    return 0;
+}"
+}
