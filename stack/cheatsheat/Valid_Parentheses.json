@@ -1,0 +1,32 @@
+{
+  "title":"Valid Parentheses",
+  "code":"#include <bits/stdc++.h>
+using namespace std;
+
+bool isValid(const string& s) {
+    stack<char> st;
+
+    for (char ch : s) {
+        if (ch == '(') {
+            st.push(ch);
+        } else if (ch == ')') {
+            if (st.empty())
+                return false;
+
+            st.pop();
+        } else {
+            return false;
+        }
+    }
+
+    return st.empty();
+}
+
+int main() {
+    string s;
+    cin >> s;
+
+    cout << (isValid(s) ? 1 : 0) << '\n';
+    return 0;
+}"
+}
