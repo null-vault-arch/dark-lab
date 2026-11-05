@@ -1,0 +1,14 @@
+{
+  "cheatsheat": {
+    "1": "Fibonacci Recursion",
+    "2": "Fibonacci Memoization (Top Down)",
+    "3": "Fibonacci Tabulation (Bottom Up)",
+    "4": "Fibonacci Space Optimization",
+    "5": "0/1 Knapsack (Space Optimized)",
+    "6": "Longest Common Subsequence (LCS)",
+    "7": "Longest Increasing Subsequence (LIS)",
+    "8": "Grid DP (Unique Paths)",
+    "9": "Stock DP (Index, Buy State)",
+    "10": "Stock DP (Index, Buy, Transaction Cap)"
+  }
+}
