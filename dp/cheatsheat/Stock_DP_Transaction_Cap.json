@@ -1,0 +1,46 @@
+{
+  "title":"Stock DP (Index, Buy, Transaction Cap)",
+  "code":"#include <bits/stdc++.h>
+using namespace std;
+
+long long solve(int index, int canBuy, int cap,
+                const vector<int>& prices,
+                vector<vector<vector<long long>>>& dp) {
+    if (index == (int)prices.size() || cap == 0)
+        return 0;
+
+    long long& answer = dp[index][canBuy][cap];
+    if (answer != -1)
+        return answer;
+
+    if (canBuy) {
+        answer = max(
+            -prices[index] + solve(index + 1, 0, cap, prices, dp),
+            solve(index + 1, 1, cap, prices, dp)
+        );
+    } else {
+        answer = max(
+            prices[index] + solve(index + 1, 1, cap - 1, prices, dp),
+            solve(index + 1, 0, cap, prices, dp)
+        );
+    }
+
+    return answer;
+}
+
+int main() {
+    int n, cap;
+    cin >> n >> cap;
+
+    vector<int> prices(n);
+    for (int i = 0; i < n; i++)
+        cin >> prices[i];
+
+    vector<vector<vector<long long>>> dp(
+        n, vector<vector<long long>>(2, vector<long long>(cap + 1, -1))
+    );
+
+    cout << solve(0, 1, cap, prices, dp) << '\n';
+    return 0;
+}"
+}
