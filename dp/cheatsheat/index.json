@@ -7,5 +7,6 @@
   "6": "Longest Common Subsequence (LCS)",
   "7": "Longest Increasing Subsequence (LIS)",
   "8": "Grid DP (Unique Paths)",
-  "9": "Stock DP (Index, Buy State)"
+  "9": "Stock DP (Index, Buy State)",
+  "10": "Stock DP (Index, Buy, Transaction Cap)"
 }
