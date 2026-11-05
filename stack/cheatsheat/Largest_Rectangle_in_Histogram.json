@@ -1,0 +1,35 @@
+{
+  "title":"Largest Rectangle in Histogram",
+  "code":"#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    vector<int> heights(n);
+    for (int i = 0; i < n; i++)
+        cin >> heights[i];
+
+    stack<int> st;
+    long long maxArea = 0;
+
+    for (int i = 0; i <= n; i++) {
+        int currentHeight = (i == n ? 0 : heights[i]);
+
+        while (!st.empty() && heights[st.top()] >= currentHeight) {
+            int height = heights[st.top()];
+            st.pop();
+
+            int width = st.empty() ? i : i - st.top() - 1;
+            maxArea = max(maxArea, 1LL * height * width);
+        }
+
+        if (i < n)
+            st.push(i);
+    }
+
+    cout << maxArea << '\n';
+    return 0;
+}"
+}
